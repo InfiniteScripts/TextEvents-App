@@ -1,0 +1,8 @@
+{
+  "name": "textevents",
+  "app_id": "b4559f5d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
