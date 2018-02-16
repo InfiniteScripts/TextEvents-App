@@ -38,9 +38,12 @@ export class User {
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
+
+      if (res == 'success') {
         this._loggedIn(res);
-      } else {
+
+      } else if (res == 'Invalid Email') {
+
       }
     }, err => {
       console.error('ERROR', err);
@@ -53,8 +56,8 @@ export class User {
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
-  signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
+  register(accountInfo: any) {
+    let seq = this.api.post('register', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in

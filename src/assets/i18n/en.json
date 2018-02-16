@@ -28,7 +28,7 @@
 
   "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
 
-  "WELCOME_INTRO": "The starting point for your next great Ionic app",
+  "WELCOME_INTRO": "Text Events. Automate and send group text messaes.",
 
   "SETTINGS_TITLE": "Settings",
   "SETTINGS_OPTION1": "Option 1",
@@ -45,6 +45,7 @@
   "LOGIN_TITLE": "Sign in",
   "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",
   "LOGIN_BUTTON": "Sign in",
+  "REGISTER_PAGE_BUTTON" : "Don't Have an accouunt? Register Here.",
   "SIGNUP_TITLE": "Sign up",
   "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
   "SIGNUP_BUTTON": "Sign up",
