@@ -18,22 +18,22 @@ export class Items {
       {
         "name": "Monday Tournament",
         "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "about": "Monday 6PM. 140"
       },
       {
         "name": "Tuesday Self Deal",
         "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "about": "60 Self Deal"
       },
       {
         "name": "Weds PLO",
         "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "about": "7PM ALL PLO"
       },
       {
         "name": "Friday Cash Game",
         "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
+        "about": "8PM First 60 to RSVP and show up before 8 get 30$"
       }
     ];
 

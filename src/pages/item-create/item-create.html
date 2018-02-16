@@ -42,6 +42,25 @@
       <ion-item>
         <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="about"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="{{ 'ITEM_START_PLACEHOLDER' | translate }}" formControlName="start"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Gender</ion-label>
+          <ion-select [(ngModel)]="weekday">
+            <ion-option value="Monday">Monday</ion-option>
+            <ion-option value="Tuesday">Tuesday</ion-option>
+            <ion-option value="Wednesday">Wednesday</ion-option>
+            <ion-option value="Thursday">Thursday</ion-option>
+            <ion-option value="Friday">Friday</ion-option>
+            <ion-option value="Saturday">Saturday</ion-option>
+            <ion-option value="Sunday">Sunday</ion-option>
+
+          </ion-select>
+        </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
+      </ion-item>
     </ion-list>
   </form>
 </ion-content>
