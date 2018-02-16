@@ -9,12 +9,17 @@
  */
 export class Item {
 
-  constructor(fields: any) {
-    // Quick and dirty extend/assign fields to this model
-    for (const f in fields) {
-      // @ts-ignore
-      this[f] = fields[f];
-    }
+  public name: string;
+  public created_date: datetime;
+  public user: string;
+  public desc: string;
+  public day: string;
+  public start_text_time: string;
+  public contacts: array;
+
+  constructor(init?:Partial<Item>) {
+    Object.assign(this, init);
+
   }
 
 }

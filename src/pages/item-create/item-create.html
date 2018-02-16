@@ -40,14 +40,14 @@
         <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="about"></ion-input>
+        <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="desc"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_START_PLACEHOLDER' | translate }}" formControlName="start"></ion-input>
+        <ion-input type="text" placeholder="{{ 'ITEM_START_PLACEHOLDER' | translate }}" formControlName="start_text_time"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Gender</ion-label>
-          <ion-select [(ngModel)]="weekday">
+        <ion-label>Weekday</ion-label>
+          <ion-select formControlName="day">
             <ion-option value="Monday">Monday</ion-option>
             <ion-option value="Tuesday">Tuesday</ion-option>
             <ion-option value="Wednesday">Wednesday</ion-option>

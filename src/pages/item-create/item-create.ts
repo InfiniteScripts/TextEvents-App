@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { IonicPage, NavController, ViewController } from 'ionic-angular';
 
+import { Items } from '../../providers/providers';
+
 @IonicPage()
 @Component({
   selector: 'page-item-create',
@@ -17,14 +19,15 @@ export class ItemCreatePage {
 
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items: Items) {
     this.form = formBuilder.group({
-      profilePic: [''],
+    //  profilePic: [''],
       name: ['', Validators.required],
-      about: [''],
+      desc: [''],
       day: [''],
-      start:[''],
-      contacts:['']
+      start_text_time:[''],
+      contacts:[''],
+      day:['']
     });
 
     // Watch the form for changes, and
@@ -81,6 +84,15 @@ export class ItemCreatePage {
    */
   done() {
     if (!this.form.valid) { return; }
+
+    console.error(this.form.value);
+
     this.viewCtrl.dismiss(this.form.value);
+
+  //  this.items.add('').subscribe((resp) => {
+//      if(resp == 'success'){
+//      }
+//    });
+
   }
 }

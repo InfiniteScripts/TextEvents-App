@@ -40,11 +40,13 @@ export class SignupPage {
         this.navCtrl.push(MainPage);
       } else if(resp == 'Email in use'){
         this.navCtrl.push(SignupPage);
+
         let toast = this.toastCtrl.create({
           message: resp,
           duration: 5000,
           position: 'top'
         });
+        
         toast.present();
       }
       console.error(resp);
