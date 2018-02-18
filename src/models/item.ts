@@ -17,9 +17,12 @@ export class Item {
   public start_text_time: string;
   public contacts: any;
 
-  constructor(name: string, created_date:string, desc:string, day:string, start_text_time:string) {
-    this.name = name;
-
+  constructor(data: any) {
+    for (let key in data) {
+            this[key] = data[key];
+    }
+    this.user = localStorage.getItem('currentUser');
+    this.created_date = Date.now();
   }
 
 }
