@@ -15,14 +15,14 @@
 <ion-content>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
+  <!--  <ion-item-sliding *ngFor="let item of currentItems"> 
       <button ion-item (click)="openItem(item)">
         <ion-avatar item-start>
           <img [src]="item.profilePic" />
         </ion-avatar>
         <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+        <p>{{item.day}}</p>
+        <ion-note item-end *ngIf="item.desc">{{item.desc}}</ion-note>
       </button>
 
       <ion-item-options>
@@ -30,6 +30,6 @@
           {{ 'DELETE_BUTTON' | translate }}
         </button>
       </ion-item-options>
-    </ion-item-sliding>
+    </ion-item-sliding> -->
   </ion-list>
 </ion-content>

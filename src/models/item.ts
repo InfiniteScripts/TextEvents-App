@@ -17,8 +17,8 @@ export class Item {
   public start_text_time: string;
   public contacts: any;
 
-  constructor(init?:Partial<Item>) {
-    Object.assign(this, init);
+  constructor(name: string, created_date:string, desc:string, day:string, start_text_time:string) {
+    this.name = name;
 
   }
 
