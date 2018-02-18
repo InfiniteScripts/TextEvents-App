@@ -10,12 +10,12 @@
 export class Item {
 
   public name: string;
-  public created_date: datetime;
+  public created_date: string;
   public user: string;
   public desc: string;
   public day: string;
   public start_text_time: string;
-  public contacts: array;
+  public contacts: any;
 
   constructor(init?:Partial<Item>) {
     Object.assign(this, init);

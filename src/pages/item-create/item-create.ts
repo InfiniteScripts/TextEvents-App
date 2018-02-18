@@ -27,7 +27,7 @@ export class ItemCreatePage {
       day: [''],
       start_text_time:[''],
       contacts:[''],
-      day:['']
+      
     });
 
     // Watch the form for changes, and
