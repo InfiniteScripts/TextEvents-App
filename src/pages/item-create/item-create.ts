@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { NavController, ViewController } from 'ionic-angular';
+import { Api } from '../../providers/api/api';
 
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
@@ -20,7 +21,7 @@ export class ItemCreatePage {
 
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items:Items) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items:Items, public api:Api) {
     this.form = formBuilder.group({
     //  profilePic: [''],
       name: ['', Validators.required],
@@ -88,8 +89,11 @@ export class ItemCreatePage {
 
     console.log(this.form.value);
     let item = new Item(this.form.value);
-    console.log('item', item);
-    this.items.add(item);
+    console.log(this.items);
+    this.api.post('events', item).subscribe((resp) =>{
+      console.log(item);
+      console.log(resp);
+    });
 
     this.viewCtrl.dismiss(this.form.value);
 
