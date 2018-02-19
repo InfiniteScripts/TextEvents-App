@@ -62,7 +62,7 @@ export class User {
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
       if (res.status == 'success') {
-        localStorage.setItem('currentUser', JSON.stringify(accountInfo.email);
+        localStorage.setItem('currentUser', JSON.stringify(accountInfo.email));
         this._loggedIn(res);
       }
     }, err => {

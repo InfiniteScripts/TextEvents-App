@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams, HttpHeaders, RequestOptions } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /**
@@ -9,8 +9,7 @@ export class Api {
   url: string = 'https://text-events-api.herokuapp.com';
 
   constructor(public http: HttpClient) {
-    this.headers = new Headers();
-    this.headers.append('Content-Type', 'application/json');
+  
   }
 
   get(endpoint: string, params?: any, reqOpts?: any) {

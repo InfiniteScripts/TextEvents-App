@@ -1,20 +1,33 @@
 import { Injectable } from '@angular/core';
 import { MainPage } from '../pages';
-import { NavController, ToastController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
 import { Api } from '../api/api';
 
 @Injectable()
 export class Items {
+  currentItems: any;
+  constructor( public api: Api ) {
 
-  constructor(public api: Api,
-      public navCtrl: NavController,
-      public item: Item,
-  ) { }
+    this.currentItems = this.api.get('events', {'user' : localStorage.getItem('currentUser')}).map(res =>res.json());
+    console.log('resp', this.currentItems);
+
+
+
+  }
 
   query(params?: any) {
-    return this.api.get('/events', params);
+
+  let seq = this.api.get('events', {'user' : localStorage.getItem('currentUser')}).share();
+
+  seq.subscribe(resp =>{
+
+    this.currentItems = JSON.stringify(resp).currentItems;
+
+
+  });
+  return seq;
   }
 
   add(item: Item) {
