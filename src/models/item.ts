@@ -10,6 +10,7 @@
 export class Item {
 
   public name: string;
+  public profilePic: string;
   public created_date: string;
   public user: string;
   public desc: string;
@@ -23,6 +24,7 @@ export class Item {
     }
     this.user = localStorage.getItem('currentUser');
     this.created_date = Date.now();
+    this.profilePic = 'assets/img/profile/pokerchip.png';
   }
 
 }
