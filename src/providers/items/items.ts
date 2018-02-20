@@ -8,12 +8,10 @@ import { Api } from '../api/api';
 @Injectable()
 export class Items {
   currentItems: any;
+
   constructor( public api: Api ) {
 
     this.currentItems = this.api.get('events', {'user' : localStorage.getItem('currentUser')}).map(res =>res.json());
-    console.log('resp', this.currentItems);
-
-
 
   }
 
@@ -31,19 +29,14 @@ export class Items {
   }
 
   add(item: Item) {
-
-    let seq = this.api.post('events', item).share();
-    seq.subscribe((resp) =>{
-
-      console.log(resp);
-    });
-    return seq;
+  //  this.currentItems.push(item);
   }
   update(){
 
   }
 
   delete(item: Item) {
+    //this.currentItems.splice(this.items.indexOf(item), 1);
   }
 
 }

@@ -4,7 +4,7 @@ import { Camera } from '@ionic-native/camera';
 import { NavController, ViewController } from 'ionic-angular';
 import { Api } from '../../providers/api/api';
 
-
+import { MainPage } from '../pages';
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
@@ -29,7 +29,8 @@ export class ItemCreatePage {
       desc: [''],
       day: [''],
       start_text_time:[''],
-      contacts:[''],
+      start_text_am_pm: [''],
+      contacts:['']
 
     });
 
@@ -88,21 +89,18 @@ export class ItemCreatePage {
   done() {
     if (!this.form.valid) { return; }
 
-
     let item = new Item(this.form.value);
 
     let jsonItem = JSON.stringify(item);
     console.log(jsonItem);
-
     let seq = this.api.post('events', jsonItem).share();
     seq.subscribe((resp) =>{
+        console.log(resp);
+        item.id = resp['_id'];
 
-      console.log(resp);
     });
 
     this.viewCtrl.dismiss(this.form.value);
-
-
 
   }
 }

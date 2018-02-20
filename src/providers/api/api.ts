@@ -9,7 +9,7 @@ export class Api {
   url: string = 'https://text-events-api.herokuapp.com';
 
   constructor(public http: HttpClient) {
-  
+
   }
 
   get(endpoint: string, params?: any, reqOpts?: any) {
@@ -40,6 +40,11 @@ export class Api {
   }
 
   put(endpoint: string, body: any, reqOpts?: any) {
+    reqOpts = {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
     return this.http.put(this.url + '/' + endpoint, body, reqOpts);
   }
 

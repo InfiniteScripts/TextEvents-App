@@ -10,21 +10,25 @@
 export class Item {
 
   public name: string;
-  public profilePic: string;
-  public created_date: string;
   public user: string;
+  public profilePic: string;
+  public created_date: number;
+
   public desc: string;
   public day: string;
   public start_text_time: string;
+  public start_text_am_pm: string;
   public contacts: any;
+  public id: string;
 
   constructor(data: any) {
     for (let key in data) {
             this[key] = data[key];
     }
-    this.user = localStorage.getItem('currentUser');
+
     this.created_date = Date.now();
     this.profilePic = 'assets/img/profile/pokerchip.png';
+    this.user = localStorage.getItem('currentUser');
   }
 
 }

@@ -6,15 +6,73 @@
 
 </ion-header>
 
-
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
+  <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+  <div class="profile-image-wrapper" (click)="getPicture()">
+    <div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value">
+      <ion-icon name="add"></ion-icon>
+      <div>
+        {{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}
+      </div>
+    </div>
+    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="'url(' + item.profilePic + ')'"></div>
   </div>
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="desc"></ion-input>
+    </ion-item>
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.desc}}</p>
-    <p>{{item.day}}</p>
-    <p>{{item.start_text_time}}</p>
-  </div>
+    <ion-item>
+      <ion-label>{{ 'ITEM_START_PLACEHOLDER' | translate }}</ion-label>
+        <ion-select formControlName="start_text_time">
+          <ion-option value="1">1</ion-option>
+          <ion-option value="2">2</ion-option>
+          <ion-option value="3">3</ion-option>
+          <ion-option value="4">4</ion-option>
+          <ion-option value="5">5</ion-option>
+          <ion-option value="6">6</ion-option>
+          <ion-option value="7">7</ion-option>
+          <ion-option value="8">8</ion-option>
+          <ion-option value="9">9</ion-option>
+          <ion-option value="10">10</ion-option>
+          <ion-option value="11">11</ion-option>
+          <ion-option value="12">12</ion-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+      <ion-label>{{ 'AM_PM_PLACEHOLDER' | translate }}</ion-label>
+        <ion-select formControlName="start_text_am_pm">
+          <ion-option value="AM">AM</ion-option>
+          <ion-option value="PM">PM</ion-option>
+
+        </ion-select>
+      </ion-item>
+    <ion-item>
+      <ion-label>Weekday</ion-label>
+        <ion-select formControlName="day">
+          <ion-option value="Monday">Monday</ion-option>
+          <ion-option value="Tuesday">Tuesday</ion-option>
+          <ion-option value="Wednesday">Wednesday</ion-option>
+          <ion-option value="Thursday">Thursday</ion-option>
+          <ion-option value="Friday">Friday</ion-option>
+          <ion-option value="Saturday">Saturday</ion-option>
+          <ion-option value="Sunday">Sunday</ion-option>
+
+        </ion-select>
+      </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
+    </ion-item>
+  </ion-list>
+</form>
+<div padding>
+  <button ion-button (click)="update()" color="primary" block>{{ 'UPDATE_BUTTON' | translate }}</button>
+</div>
+<div padding>
+  <button ion-button (click)="delete()" color="primary" block>{{ 'DELETE_BUTTON' | translate }}</button>
+</div>
 </ion-content>

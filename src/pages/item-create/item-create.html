@@ -42,9 +42,34 @@
       <ion-item>
         <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="desc"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_START_PLACEHOLDER' | translate }}" formControlName="start_text_time"></ion-input>
-      </ion-item>
+        <ion-label>{{ 'ITEM_START_PLACEHOLDER' | translate }}</ion-label>
+          <ion-select formControlName="start_text_time">
+            <ion-option value="1">1</ion-option>
+            <ion-option value="2">2</ion-option>
+            <ion-option value="3">3</ion-option>
+            <ion-option value="4">4</ion-option>
+            <ion-option value="5">5</ion-option>
+            <ion-option value="6">6</ion-option>
+            <ion-option value="7">7</ion-option>
+            <ion-option value="8">8</ion-option>
+            <ion-option value="9">9</ion-option>
+            <ion-option value="10">10</ion-option>
+            <ion-option value="11">11</ion-option>
+            <ion-option value="12">12</ion-option>
+
+
+          </ion-select>
+        </ion-item>
+      <ion-item>
+        <ion-label>{{ 'AM_PM_PLACEHOLDER' | translate }}</ion-label>
+          <ion-select formControlName="start_text_am_pm">
+            <ion-option value="AM">AM</ion-option>
+            <ion-option value="PM">PM</ion-option>
+
+          </ion-select>
+        </ion-item>
       <ion-item>
         <ion-label>Weekday</ion-label>
           <ion-select formControlName="day">

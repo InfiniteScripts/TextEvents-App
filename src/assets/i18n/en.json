@@ -35,7 +35,11 @@
   "SIGNUP_TITLE": "Sign up",
   "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
   "SIGNUP_BUTTON": "Sign up",
+  "UPDATE_BUTTON": "Update Event",
+  "DELETE_BUTTON": "Delete Events",
 
+  "UPDATE_STRING": "Event Successfully Updated.",
+  "DELETE_STRING": "Event Successfully Deleted.",
   "LIST_MASTER_TITLE": "Events",
 
   "ITEM_CREATE_TITLE": "New Event",
@@ -43,7 +47,8 @@
 
   "ITEM_NAME_PLACEHOLDER": "Name",
   "ITEM_ABOUT_PLACEHOLDER": "Message",
-  "ITEM_START_PLACEHOLDER": "Start Texts At",
+  "ITEM_START_PLACEHOLDER": "Start sending texts at: ",
+  "AM_PM_PLACEHOLDER" : "Start sending texts AM/PM: ",
   "ITEM_DAY_PLACEHOLDER": "Day of the Event",
   "ITEM_CONTACTS_PLACEHOLDER": "Contact Group",
 
