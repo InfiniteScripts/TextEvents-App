@@ -45,6 +45,7 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
+
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
