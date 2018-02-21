@@ -17,6 +17,10 @@ import { Item } from '../../models/item';
 export class ItemDetailPage {
   item: any;
 
+  form: FormGroup;
+
+  isReadyToSave: boolean;
+  
   private updateString: string;
   private deleteString: string;
 

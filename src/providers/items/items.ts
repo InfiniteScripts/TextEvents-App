@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MainPage } from '../pages';
+
 import { ToastController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
@@ -11,7 +11,7 @@ export class Items {
 
   constructor( public api: Api ) {
 
-    this.currentItems = this.api.get('events', {'user' : localStorage.getItem('currentUser')}).map(res =>res.json());
+    this.currentItems = this.api.get('events', {'user' : localStorage.getItem('currentUser')}).map(res =>res.toString());
 
   }
 

@@ -36,17 +36,17 @@ export class SignupPage {
   doSignup() {
     // Attempt to login in through our User service
     this.user.register(this.account).subscribe((resp) => {
-      if(resp == 'success'){
+      if(resp.toString() == 'success'){
         this.navCtrl.push(MainPage);
-      } else if(resp == 'Email in use'){
+      } else if(resp.toString() == 'Email in use'){
         this.navCtrl.push(SignupPage);
 
         let toast = this.toastCtrl.create({
-          message: resp,
+          message: resp.toString(),
           duration: 5000,
           position: 'top'
         });
-        
+
         toast.present();
       }
       console.error(resp);
