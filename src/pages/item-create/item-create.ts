@@ -4,7 +4,6 @@ import { Camera } from '@ionic-native/camera';
 import { NavController, ViewController } from 'ionic-angular';
 import { Api } from '../../providers/api/api';
 
-import { MainPage } from '../pages';
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 

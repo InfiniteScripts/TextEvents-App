@@ -20,7 +20,7 @@ export class ItemDetailPage {
   form: FormGroup;
 
   isReadyToSave: boolean;
-  
+
   private updateString: string;
   private deleteString: string;
 
@@ -29,7 +29,7 @@ export class ItemDetailPage {
 
     this.form = formBuilder.group({
       profilePic: this.item.profilePic,
-      name: this.item.name,
+      name: [this.item.name, Validators.required],
       desc: this.item.desc,
       day: this.item.day,
       start_text_time:this.item.start_text_time,
