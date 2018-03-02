@@ -67,9 +67,10 @@
     <ion-item>
       <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
     </ion-item>
-      <ul *ngIf="allContacts">
+    <ion-item-sliding *ngFor="let contact of allContacts">
+
         <li>{{ contact.name }}</li>
-      </ul>
+    </ion-item-sliding>
   </ion-list>
 </form>
 <div padding>
