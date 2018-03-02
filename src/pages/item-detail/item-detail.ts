@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
+import { Contacts } from '@ionic-native/contacts';
 
 import { MainPage } from '../pages';
 import { Api } from '../../providers/api/api';
@@ -19,12 +20,13 @@ export class ItemDetailPage {
 
   form: FormGroup;
 
+  allContacts: any;
   isReadyToSave: boolean;
 
   private updateString: string;
   private deleteString: string;
 
-  constructor(public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
+  constructor(public contacts: Contacts, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
     this.item = navParams.get('item');
 
     this.form = formBuilder.group({
@@ -44,6 +46,11 @@ export class ItemDetailPage {
     this.translateService.get('DELETE_STRING').subscribe((value) => {
       this.deleteString = value;
     })
+
+    this.contacts.find(['displayName', 'name', 'phoneNumbers', 'emails'], {filter: "", multiple: true})
+    .then(data => {
+      this.allContacts = data
+    }); 
 
 
     // Watch the form for changes, and

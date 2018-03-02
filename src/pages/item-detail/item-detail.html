@@ -67,6 +67,9 @@
     <ion-item>
       <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
     </ion-item>
+      <ul *ngIf="allContacts">
+      <!--  <li>{{ contact.name }}</li> -->
+      </ul>
   </ion-list>
 </form>
 <div padding>
