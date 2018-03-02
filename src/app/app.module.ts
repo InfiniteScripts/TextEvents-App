@@ -17,8 +17,8 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
 import { Pro } from '@ionic/pro';
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
-import { IonicErrorHandler } from 'ionic-angular';
+import { Injectable, Injector } from '@angular/core';
+
 
 Pro.init('b4559f5d', {
   appVersion: '1.0.0'
