@@ -10,6 +10,11 @@ import { Api } from '../../providers/api/api';
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
+import { Pro } from '@ionic/pro';
+import { ErrorHandler, Injectable, Injector } from '@angular/core';
+import { IonicErrorHandler } from 'ionic-angular';
+
+
 @IonicPage()
 @Component({
   selector: 'page-item-detail',
@@ -50,8 +55,8 @@ export class ItemDetailPage {
     this.contacts.find(['displayName', 'name', 'phoneNumbers', 'emails'], {filter: "", multiple: true})
     .then(data => {
       this.allContacts = data
-    }); 
-
+    });
+    Pro.monitoring.exception(new Error(this.allContacts));
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
