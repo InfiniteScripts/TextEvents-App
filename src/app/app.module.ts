@@ -16,10 +16,38 @@ import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
+import { Pro } from '@ionic/pro';
+import { ErrorHandler, Injectable, Injector } from '@angular/core';
+import { IonicErrorHandler } from 'ionic-angular';
+
+Pro.init('b4559f5d', {
+  appVersion: '1.0.0'
+})
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+@Injectable()
+export class MyErrorHandler implements ErrorHandler {
+  ionicErrorHandler: IonicErrorHandler;
+
+  constructor(injector: Injector) {
+    try {
+      this.ionicErrorHandler = injector.get(IonicErrorHandler);
+    } catch(e) {
+      // Unable to get the IonicErrorHandler provider, ensure
+      // IonicErrorHandler has been added to the providers list below
+    }
+  }
+
+  handleError(err: any): void {
+    Pro.monitoring.handleNewError(err);
+    // Remove this if you want to disable Ionic's auto exception handling
+    // in development mode.
+    this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
+  }
 }
 
 export function provideSettings(storage: Storage) {
@@ -65,6 +93,8 @@ export function provideSettings(storage: Storage) {
     Camera,
     Contacts,
     SplashScreen,
+    IonicErrorHandler,
+        [{ provide: ErrorHandler, useClass: MyErrorHandler }],
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
