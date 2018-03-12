@@ -68,10 +68,10 @@
       <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
     </ion-item>
 
-       <ion-item *ngFor="#item of allContacts">
+       <ion-item *ngFor="item of allContacts">
            {{item.displayName}}
        </ion-item>
-    
+
 
   </ion-list>
 </form>
