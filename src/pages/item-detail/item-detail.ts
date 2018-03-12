@@ -50,18 +50,22 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
-    this.phoneContacts.find(
-      ["displayName", "phoneNumbers", "id"],
-      {multiple: true, hasPhoneNumber: true}
-    ).then((foundContacts) => {
-        this.allContacts = foundContacts;
-
-    });
+    this.allContacts = getPhoneContacts();
 
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
+    });
+  }
+
+  async getPhoneContacts(){
+    this.phoneContacts.find(
+      ["displayName", "phoneNumbers", "id"],
+      {multiple: true, hasPhoneNumber: true}
+    ).then((foundContacts) => {
+        return await foundContacts;
+
     });
   }
 
