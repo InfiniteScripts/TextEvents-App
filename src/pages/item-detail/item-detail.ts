@@ -50,7 +50,7 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
-    this.allContacts = this.getPhoneContacts();
+    this.getPhoneContacts();
 
 
     // Watch the form for changes, and
@@ -59,12 +59,12 @@ export class ItemDetailPage {
     });
   }
 
-  async getPhoneContacts(){
+  getPhoneContacts(){
     this.phoneContacts.find(
       ["displayName", "phoneNumbers", "id"],
       {multiple: true, hasPhoneNumber: true}
     ).then((foundContacts) => {
-        return foundContacts;
+        this.allContacts = foundContacts;
 
     });
   }
