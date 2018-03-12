@@ -52,7 +52,7 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
-    Contacts.find(['*'], {filter: val}).then((contacts) => {
+    this.contacts.find(['*'], {filter: val}).then((contacts) => {
           this.allContacts = contacts;
           alert(JSON.stringify(contacts[0]));
     })
