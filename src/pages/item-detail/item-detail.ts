@@ -52,10 +52,10 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
-    this.contacts.find(['displayName', 'name', 'phoneNumbers', 'emails'], {filter: "", multiple: true})
-    .then(data => {
-      this.allContacts = data
-    });
+    Contacts.find(['*'], {filter: val}).then((contacts) => {
+          this.allContacts = contacts;
+          alert(JSON.stringify(contacts[0]));
+    })
     Pro.monitoring.exception(new Error(this.allContacts));
 
     // Watch the form for changes, and
@@ -72,9 +72,9 @@ export class ItemDetailPage {
     if (!this.form.valid) { return; }
       let newItem = new Item(this.form.value);
       let jsonItem = JSON.stringify(newItem);
-      console.log(jsonItem);
+
       let route = 'events/' + this.item._id;
-      console.log(route);
+
       let seq = this.api.put(route, jsonItem).share();
       seq.subscribe((resp) =>{
           console.log(resp);
