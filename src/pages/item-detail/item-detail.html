@@ -70,8 +70,8 @@
     <!-- [checked]="contacts.contains(singleContact.id)" -->
     <ion-list *ngFor="let singleContact of allContacts" formControlName="contacts">
        <ion-item>
-          <ion-checkbox value="singleContact?.id"></ion-checkbox>
-          <ion-label>{{singleContact?.displayName}}</ion-label>
+          <ion-checkbox value="singleContact.id"></ion-checkbox>
+          <ion-label>{{singleContact?.displayName | async}}</ion-label>
        </ion-item>
     </ion-list>
 
