@@ -50,7 +50,7 @@
   "ITEM_START_PLACEHOLDER": "Start sending texts at: ",
   "AM_PM_PLACEHOLDER" : "Start sending texts AM/PM: ",
   "ITEM_DAY_PLACEHOLDER": "Day of the Event",
-  "ITEM_CONTACTS_PLACEHOLDER": "Contact Group",
+  "ITEM_CONTACTS_PLACEHOLDER": "Contacts to text: ",
 
   "DONE_BUTTON": "Done",
   "CANCEL_BUTTON": "Cancel",
