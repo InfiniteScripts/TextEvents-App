@@ -42,7 +42,7 @@ export class ItemDetailPage {
       contacts: this.item.contacts
 
     });
-
+    Pro.monitoring.exception(new Error(this.item.contacts));
     this.translateService.get('UPDATE_STRING').subscribe((value) => {
       this.updateString = value;
     })
@@ -57,7 +57,7 @@ export class ItemDetailPage {
         this.allContacts = foundContacts;
 
     });
-    Pro.monitoring.exception(new Error(this.allContacts));
+
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {

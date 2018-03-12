@@ -67,9 +67,10 @@
     <ion-item>
       <ion-label> {{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}</ion-label>
     </ion-item>
+    <!-- [checked]="contacts.contains(singleContact.id)" -->
     <ion-list *ngFor="let singleContact of allContacts">
        <ion-item *ngIf="singleContact.displayName">
-          <ion-checkbox [checked]="contacts.contains(singleContact.id)" [ngModel]="singleContact.id"></ion-checkbox>
+          <ion-checkbox  [ngModel]="singleContact.id"></ion-checkbox>
           <ion-label>{{singleContact.displayName}}</ion-label>
        </ion-item>
     </ion-list>
