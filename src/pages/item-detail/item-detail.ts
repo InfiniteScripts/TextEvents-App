@@ -42,7 +42,7 @@ export class ItemDetailPage {
       contacts: this.item.contacts
 
     });
-    Pro.monitoring.exception(new Error(this.item.contacts));
+
     this.translateService.get('UPDATE_STRING').subscribe((value) => {
       this.updateString = value;
     })
