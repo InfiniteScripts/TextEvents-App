@@ -67,7 +67,7 @@
     <ion-item>
       <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
     </ion-item>
-    <ion-list *ngFor="contact of allContacts">
+    <ion-list *ngFor="let contact of allContacts">
        <ion-item *ngIf="contact.displayName">
            {{contact.displayName}}
        </ion-item>
