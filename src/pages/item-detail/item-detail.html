@@ -65,11 +65,11 @@
         </ion-select>
       </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
+      <ion-label> {{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}</ion-label>
     </ion-item>
     <ion-list *ngFor="let contact of allContacts">
        <ion-item *ngIf="contact.displayName">
-           <ion-checkbox [ngModel]="{{contact.id}}"></ion-checkbox><ion-label>{{contact.displayName}}</ion-label>
+           <ion-checkbox [ngModel]="contact.id"></ion-checkbox><ion-label>{{contact.displayName}}</ion-label>
        </ion-item>
     </ion-list>
 
