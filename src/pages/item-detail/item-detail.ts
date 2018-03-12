@@ -51,7 +51,7 @@ export class ItemDetailPage {
     })
 
     this.phoneContacts.find(
-      ["displayName", "phoneNumbers","photos"],
+      ["displayName", "phoneNumbers", "id"],
       {multiple: true, hasPhoneNumber: true}
     ).then((foundContacts) => {
         this.allContacts = foundContacts;
