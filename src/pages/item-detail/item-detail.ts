@@ -29,7 +29,7 @@ export class ItemDetailPage {
   private updateString: string;
   private deleteString: string;
 
-  constructor(public contacts: Contacts, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
+  constructor(public phoneContacts: Contacts, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
     this.item = navParams.get('item');
 
     this.form = formBuilder.group({
@@ -39,7 +39,7 @@ export class ItemDetailPage {
       day: this.item.day,
       start_text_time:this.item.start_text_time,
       start_text_am_pm: this.item.start_text_am_pm,
-      contacts:[''],
+      contacts: this.item.contacts
 
     });
 
@@ -50,11 +50,11 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
-    this.contacts.find(
+    this.phoneContacts.find(
       ["displayName", "phoneNumbers","photos"],
       {multiple: true, hasPhoneNumber: true}
-      ).then((contacts) => {
-        this.allContacts = contacts;
+    ).then((foundContacts) => {
+        this.allContacts = foundContacts;
 
     });
     Pro.monitoring.exception(new Error(this.allContacts));
