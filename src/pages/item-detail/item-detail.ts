@@ -11,8 +11,6 @@ import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
 import { Pro } from '@ionic/pro';
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
-import { IonicErrorHandler } from 'ionic-angular';
 
 
 @IonicPage()
@@ -52,10 +50,13 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
-    this.contacts.find(['*'], {filter: val}).then((contacts) => {
-          this.allContacts = contacts;
-          alert(JSON.stringify(contacts[0]));
-    })
+    this.contacts.find(
+      ["displayName", "phoneNumbers","photos"],
+      {multiple: true, hasPhoneNumber: true}
+      ).then((contacts) => {
+        this.allContacts = contacts;
+
+    });
     Pro.monitoring.exception(new Error(this.allContacts));
 
     // Watch the form for changes, and
