@@ -50,7 +50,7 @@ export class ItemDetailPage {
       this.deleteString = value;
     })
 
-    this.allContacts = getPhoneContacts();
+    this.allContacts = this.getPhoneContacts();
 
 
     // Watch the form for changes, and
