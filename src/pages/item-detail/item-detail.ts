@@ -64,7 +64,7 @@ export class ItemDetailPage {
       ["displayName", "phoneNumbers", "id"],
       {multiple: true, hasPhoneNumber: true}
     ).then((foundContacts) => {
-        return await foundContacts;
+        return foundContacts;
 
     });
   }
