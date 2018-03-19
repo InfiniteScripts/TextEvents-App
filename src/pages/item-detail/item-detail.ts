@@ -20,7 +20,7 @@ import { Pro } from '@ionic/pro';
 })
 export class ItemDetailPage {
   item: any;
-
+  checkedContacts: any;
   form: FormGroup;
 
   allContacts: any;
@@ -76,6 +76,7 @@ export class ItemDetailPage {
   update(){
     if (!this.form.valid) { return; }
       let newItem = new Item(this.form.value);
+      newItem.contacts = this.checkedContacts;
       let jsonItem = JSON.stringify(newItem);
 
       let route = 'events/' + this.item._id;
