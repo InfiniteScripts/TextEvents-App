@@ -3,12 +3,15 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
-import { Contacts } from '@ionic-native/contacts';
-
+//import { Contacts } from '@ionic-native/contacts';
+//import { TestContacts} from '../../mocks/providers/testContacts';
 import { MainPage } from '../pages';
 import { Api } from '../../providers/api/api';
+
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
+
+//import { TestContact } from '../../models/testContact';
 
 import { Pro } from '@ionic/pro';
 
@@ -21,25 +24,29 @@ import { Pro } from '@ionic/pro';
 export class ItemDetailPage {
   item: any;
   checkedContacts: any;
+  saveContacts: any;
   form: FormGroup;
-
+  testContacts: any;
   allContacts: any;
   isReadyToSave: boolean;
 
   private updateString: string;
   private deleteString: string;
 
-  constructor(public phoneContacts: Contacts, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
-    this.item = navParams.get('item');
+  constructor(public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
+    this.checkedContacts = [];
 
+    this.item = navParams.get('item');
+    console.log(this.item.contacts);
+    this.checkedContacts = this.item.contacts;
     this.form = formBuilder.group({
       profilePic: this.item.profilePic,
-      name: [this.item.name, Validators.required],
+      name: this.item.name,
       desc: this.item.desc,
       day: this.item.day,
       start_text_time:this.item.start_text_time,
       start_text_am_pm: this.item.start_text_am_pm,
-      contacts: this.item.contacts
+      contacts: []
 
     });
 
@@ -49,9 +56,23 @@ export class ItemDetailPage {
     this.translateService.get('DELETE_STRING').subscribe((value) => {
       this.deleteString = value;
     })
+    this.testContacts = [
+      {
+      "name": "Kevin Greene",
+      "id": "1",
+      "phoneNumbers": "6178332937",
+      "displayName": "Kevin Greene",
+      },
+      {
+      "name": "Andy Dennis",
+      "id": "2",
+      "phoneNumbers": "5129450512",
+      "displayName": "Andy Dennis",
+      },
 
+
+    ];
     this.getPhoneContacts();
-
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
@@ -59,14 +80,20 @@ export class ItemDetailPage {
     });
   }
 
+  print(){
+    //this.saveContacts[]
+    console.log(this.checkedContacts);
+  }
   getPhoneContacts(){
-    this.phoneContacts.find(
+    console.log(this.testContacts);
+    this.allContacts = this.testContacts;
+   /*  this.phoneContacts.find(
       ["displayName", "phoneNumbers", "id"],
       {multiple: true, hasPhoneNumber: true}
     ).then((foundContacts) => {
         this.allContacts = foundContacts;
 
-    });
+    }); */
   }
 
   getProfileImageStyle() {
@@ -74,7 +101,9 @@ export class ItemDetailPage {
   }
 
   update(){
-    if (!this.form.valid) { return; }
+    //if (!this.form.valid) { return; }
+      console.log(this.checkedContacts);
+
       let newItem = new Item(this.form.value);
       newItem.contacts = this.checkedContacts;
       let jsonItem = JSON.stringify(newItem);
