@@ -69,7 +69,7 @@
     </ion-item>
     <!-- [checked]="contacts.contains(singleContact.id)" *ngIf="singleContact.displayName" value="singleContact.id"-->
     <ion-item *ngFor="let singleContact of allContacts; let i = index">
-      <ion-label>  {{singleContact[i].displayName}}</ion-label>
+      <ion-label>{{singleContact.displayName}}</ion-label>
       <ion-checkbox ngModel="checkedContacts[singleContact.id]" formControlName="contacts"></ion-checkbox>
 
     </ion-item>
