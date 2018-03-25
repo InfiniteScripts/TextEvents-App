@@ -69,7 +69,7 @@
     </ion-item>
     <!-- [checked]="contacts.contains(singleContact.id)" *ngIf="singleContact.displayName" value="singleContact.id"-->
     <ion-select [ngModel]= "this.checkedContacts" formControlName="contacts" multiple>
-        <ion-option *ngFor="let singleContact of allContacts" [selected]="checkedContacts.find(x => x === singleContact.id)" value="{{singleContact.id}}">{{singleContact.displayName}}</ion-option>
+        <ion-option *ngFor="let singleContact of allContacts" [selected]="this.containsContactId(singleContact.id)" value="{{singleContact.id}}">{{singleContact.displayName}}</ion-option>
     </ion-select>
   <!--  <ion-item *ngFor="let singleContact of allContacts; let i = index">
       <ion-label>{{singleContact.displayName}}</ion-label>

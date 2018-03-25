@@ -71,6 +71,7 @@ export function provideSettings(storage: Storage) {
   ],
   imports: [
     BrowserModule,
+    
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

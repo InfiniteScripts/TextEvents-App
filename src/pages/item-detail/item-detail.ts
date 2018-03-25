@@ -29,16 +29,18 @@ export class ItemDetailPage {
   testContacts: any;
   allContacts: any;
   isReadyToSave: boolean;
+  contactId = 0;
 
   private updateString: string;
   private deleteString: string;
 
   constructor(public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
-    this.checkedContacts = [];
 
     this.item = navParams.get('item');
-    console.log(this.item.contacts);
     this.checkedContacts = this.item.contacts;
+
+    //console.log(this.item.contacts);
+
     this.form = formBuilder.group({
       profilePic: this.item.profilePic,
       name: this.item.name,
@@ -46,7 +48,7 @@ export class ItemDetailPage {
       day: this.item.day,
       start_text_time:this.item.start_text_time,
       start_text_am_pm: this.item.start_text_am_pm,
-      contacts: []
+      contacts: [this.item.contacts]
 
     });
 
@@ -56,6 +58,7 @@ export class ItemDetailPage {
     this.translateService.get('DELETE_STRING').subscribe((value) => {
       this.deleteString = value;
     })
+
     this.testContacts = [
       {
       "name": "Kevin Greene",
@@ -80,12 +83,8 @@ export class ItemDetailPage {
     });
   }
 
-  print(){
-    //this.saveContacts[]
-    console.log(this.checkedContacts);
-  }
   getPhoneContacts(){
-    console.log(this.testContacts);
+    //console.log(this.testContacts);
     this.allContacts = this.testContacts;
    /*  this.phoneContacts.find(
       ["displayName", "phoneNumbers", "id"],
@@ -102,29 +101,37 @@ export class ItemDetailPage {
 
   update(){
     //if (!this.form.valid) { return; }
-      console.log(this.checkedContacts);
+      //console.log(this.checkedContacts);
 
       let newItem = new Item(this.form.value);
-      newItem.contacts = this.checkedContacts;
+      //console.log(newItem);
+      //newItem.contacts = this.checkedContacts;
       let jsonItem = JSON.stringify(newItem);
-
+      console.log(this.form.value);
       let route = 'events/' + this.item._id;
 
       let seq = this.api.put(route, jsonItem).share();
       seq.subscribe((resp) =>{
-          console.log(resp);
+          //console.log(resp);
           let toast = this.toastCtrl.create({
             message: this.updateString,
             duration: 3000,
             position: 'top'
           });
           toast.present();
-          this.navCtrl.push(MainPage);
+        //  this.navCtrl.push(MainPage);
       });
 
 
     }
 
+  containsContactId(contactId){
+    if(this.item.contacts.indexOf(contactId) > 0){
+      return 'true';
+    } else {
+      return 'false';
+    }
+  }
 
   delete(){
     let route = 'events/' + this.item._id;
