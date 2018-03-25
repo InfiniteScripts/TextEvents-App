@@ -119,7 +119,7 @@ export class ItemDetailPage {
             position: 'top'
           });
           toast.present();
-        //  this.navCtrl.push(MainPage);
+          this.navCtrl.push(MainPage);
       });
 
 

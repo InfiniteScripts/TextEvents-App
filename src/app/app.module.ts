@@ -9,6 +9,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Contacts } from '@ionic-native/contacts';
+import { BackgroundMode } from '@ionic-native/background-mode';
+
 
 import { Items } from '../providers/items/items';
 import { Settings } from '../providers/providers';
@@ -71,7 +73,7 @@ export function provideSettings(storage: Storage) {
   ],
   imports: [
     BrowserModule,
-    
+
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -94,6 +96,7 @@ export function provideSettings(storage: Storage) {
     Camera,
     Contacts,
     SplashScreen,
+    BackgroundMode,
     IonicErrorHandler,
         [{ provide: ErrorHandler, useClass: MyErrorHandler }],
     StatusBar,
