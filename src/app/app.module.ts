@@ -10,7 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Contacts } from '@ionic-native/contacts';
 import { BackgroundMode } from '@ionic-native/background-mode';
-
+import { SMS } from '@ionic-native/sms';
 
 import { Items } from '../providers/items/items';
 import { Settings } from '../providers/providers';
@@ -60,10 +60,8 @@ export function provideSettings(storage: Storage) {
    * these values will not overwrite the saved values (this can be done manually if desired).
    */
   return new Settings(storage, {
-    option1: true,
-    option2: 'Ionitron J. Framework',
-    option3: '3',
-    option4: 'Hello'
+    option1: 60,
+
   });
 }
 
@@ -91,6 +89,7 @@ export function provideSettings(storage: Storage) {
   ],
   providers: [
     Api,
+    SMS,
     Items,
     User,
     Camera,

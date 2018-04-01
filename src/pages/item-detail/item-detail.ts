@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 //import { Contacts } from '@ionic-native/contacts';
 //import { TestContacts} from '../../mocks/providers/testContacts';
@@ -13,7 +13,7 @@ import { Item } from '../../models/item';
 
 //import { TestContact } from '../../models/testContact';
 
-import { Pro } from '@ionic/pro';
+//import { Pro } from '@ionic/pro';
 
 
 @IonicPage()
@@ -81,6 +81,10 @@ export class ItemDetailPage {
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
     });
+  }
+
+  send(){
+
   }
 
   getPhoneContacts(){

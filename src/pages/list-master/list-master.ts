@@ -25,6 +25,8 @@ export class ListMasterPage {
     this.items.query().subscribe((resp) =>{
         this.currentItems = resp;
       });
+
+
   }
 
   /**

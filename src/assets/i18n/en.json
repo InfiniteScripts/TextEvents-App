@@ -17,7 +17,7 @@
   "WELCOME_INTRO": "Text Events. Automate and send group text messaes.",
 
   "SETTINGS_TITLE": "Settings",
-  "SETTINGS_OPTION1": "Option 1",
+  "SETTINGS_OPTION1": "Time Between Texts in Seconds",
   "SETTINGS_OPTION2": "Option 2",
   "SETTINGS_OPTION3": "Option 3",
   "SETTINGS_OPTION4": "Option 4",
