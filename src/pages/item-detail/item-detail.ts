@@ -91,7 +91,7 @@ export class ItemDetailPage {
     this.timeBetweenTexts = 6000;
     for (let contactSomething of this.allContacts){
         if(this.checkedContacts.indexOf(contactSomething.id)){
-          setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, contactSomething.displayName));
+          setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, this.checkedContacts + " " + contactSomething.displayName));
           x = x + 1;
         }
     }
