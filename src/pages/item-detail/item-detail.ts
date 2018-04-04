@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
-//import { Contacts } from '@ionic-native/contacts';
+import { Contacts } from '@ionic-native/contacts';
 import { Settings } from '../../providers/providers';
 //import { TestContacts} from '../../mocks/providers/testContacts';
 import { MainPage } from '../pages';
@@ -108,7 +108,7 @@ export class ItemDetailPage {
     ).then((foundContacts) => {
         this.allContacts = foundContacts;
 
-    }); 
+    });
   }
 
   getProfileImageStyle() {
