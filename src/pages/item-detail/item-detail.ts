@@ -37,7 +37,7 @@ export class ItemDetailPage {
   private updateString: string;
   private deleteString: string;
 
-  constructor(public sms: SMS, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
+  constructor(public phoneContacts: Contacts, public sms: SMS, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
 
     this.item = navParams.get('item');
     this.checkedContacts = this.item.contacts;
