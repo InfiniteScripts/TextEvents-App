@@ -69,7 +69,7 @@ export class ItemDetailPage {
       {
       "name": "Andy Dennis",
       "id": "2",
-      "phoneNumbers": "5129450512",
+      "phoneNumbers": "6178332937",
       "displayName": "Andy Dennis",
       },
 
@@ -84,7 +84,11 @@ export class ItemDetailPage {
   }
 
   send(){
-
+    for (let contactSomething of this.allContacts){
+        if(this.checkedContacts.indexOf(contactSomething.id)){
+          this.sms.send(this.allContacts.phoneNumbers, 'Test');
+        }
+    }
   }
 
   getPhoneContacts(){
