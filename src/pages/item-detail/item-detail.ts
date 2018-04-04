@@ -7,6 +7,7 @@ import { Camera } from '@ionic-native/camera';
 //import { TestContacts} from '../../mocks/providers/testContacts';
 import { MainPage } from '../pages';
 import { Api } from '../../providers/api/api';
+import { SMS } from '@ionic-native/sms';
 
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
@@ -34,7 +35,7 @@ export class ItemDetailPage {
   private updateString: string;
   private deleteString: string;
 
-  constructor(public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
+  constructor(public sms: SMS, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
 
     this.item = navParams.get('item');
     this.checkedContacts = this.item.contacts;
