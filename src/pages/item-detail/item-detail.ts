@@ -90,7 +90,7 @@ export class ItemDetailPage {
     var x = 1;
     this.timeBetweenTexts = 6000;
     for (let contactSomething of this.allContacts){
-        if(this.checkedContacts.indexOf(contactSomething.id)){
+        if(contactSomething.id.indexOf(this.checkedContacts)){
           setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, this.checkedContacts + " " + contactSomething.displayName));
           x = x + 1;
         }
