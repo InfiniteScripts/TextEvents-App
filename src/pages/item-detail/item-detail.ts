@@ -87,7 +87,7 @@ export class ItemDetailPage {
   send(){
     for (let contactSomething of this.allContacts){
         if(this.checkedContacts.indexOf(contactSomething.id)){
-          this.sms.send(this.allContacts.phoneNumbers, 'Test');
+          this.sms.send(contactSomething.phoneNumbers, 'Test');
         }
     }
   }
