@@ -32,7 +32,7 @@ export class ItemDetailPage {
   allContacts: any;
   isReadyToSave: boolean;
   contactId = 0;
-
+  timebetweentexts: number;
   private updateString: string;
   private deleteString: string;
 
@@ -86,7 +86,7 @@ export class ItemDetailPage {
   }
 
   send(){
-    timebetweentexts = 6000;
+    this.timebetweentexts = 6000;
     for (let contactSomething of this.allContacts){
         if(this.checkedContacts.indexOf(contactSomething.id)){
           this.setInterval(timebetweentexts, this.sms.send(contactSomething.phoneNumbers, 'Test'));
