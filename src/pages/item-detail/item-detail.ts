@@ -101,14 +101,14 @@ export class ItemDetailPage {
 
   getPhoneContacts(){
     //console.log(this.testContacts);
-    this.allContacts = this.testContacts;
-   /*  this.phoneContacts.find(
+    //this.allContacts = this.testContacts;
+     this.phoneContacts.find(
       ["displayName", "phoneNumbers", "id"],
       {multiple: true, hasPhoneNumber: true}
     ).then((foundContacts) => {
         this.allContacts = foundContacts;
 
-    }); */
+    }); 
   }
 
   getProfileImageStyle() {
