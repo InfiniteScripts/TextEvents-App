@@ -72,7 +72,7 @@ export class ItemDetailPage {
       {
       "name": "Andy Dennis",
       "id": "2",
-      "phoneNumbers": "6178332937",
+      "phoneNumbers": "5129450512",
       "displayName": "Andy Dennis",
       },
 
@@ -88,10 +88,10 @@ export class ItemDetailPage {
 
   send(){
     var x = 1;
-    this.timeBetweenTexts = 6000;
+    this.timeBetweenTexts = 60000;
     for (let contactSomething of this.allContacts){
         if(contactSomething.id.indexOf(this.checkedContacts)){
-          setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, this.checkedContacts + " " + contactSomething.displayName));
+          setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, this.item.desc));
           x = x + 1;
         }
     }
