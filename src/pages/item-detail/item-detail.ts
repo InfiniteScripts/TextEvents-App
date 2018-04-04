@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 //import { Contacts } from '@ionic-native/contacts';
+import { Settings } from '../../providers/providers';
 //import { TestContacts} from '../../mocks/providers/testContacts';
 import { MainPage } from '../pages';
 import { Api } from '../../providers/api/api';
@@ -85,12 +86,15 @@ export class ItemDetailPage {
   }
 
   send(){
+    timebetweentexts = 6000;
     for (let contactSomething of this.allContacts){
         if(this.checkedContacts.indexOf(contactSomething.id)){
-          this.sms.send(contactSomething.phoneNumbers, 'Test');
+          this.setInterval(timebetweentexts, this.sms.send(contactSomething.phoneNumbers, 'Test'));
         }
     }
   }
+
+
 
   getPhoneContacts(){
     //console.log(this.testContacts);
