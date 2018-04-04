@@ -33,6 +33,7 @@ export class ItemDetailPage {
   isReadyToSave: boolean;
   contactId = 0;
   timeBetweenTexts: number;
+
   private updateString: string;
   private deleteString: string;
 
@@ -86,10 +87,12 @@ export class ItemDetailPage {
   }
 
   send(){
+    var x = 1;
     this.timeBetweenTexts = 6000;
     for (let contactSomething of this.allContacts){
         if(this.checkedContacts.indexOf(contactSomething.id)){
-          setInterval(this.timeBetweenTexts, this.sms.send(contactSomething.phoneNumbers, contactSomething.displayName));
+          setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, contactSomething.displayName));
+          x = x + 1;
         }
     }
   }
