@@ -82,7 +82,7 @@ export class ItemDetailPage {
       if(this.checkedContacts.indexOf(contactSomething.id) > -1){
         Pro.monitoring.log(contactSomething.phoneNumbers, { level: 'error' });
         //setInterval(, (x * this.timeBetweenTexts));
-        this.sms.send(contactSomething.phoneNumbers.value, this.item.desc)
+        this.sms.send(contactSomething.phoneNumbers['value'], this.item.desc)
         x = x + 1;
       }
     }
