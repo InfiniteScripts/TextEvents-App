@@ -13,7 +13,7 @@ import { SMS } from '@ionic-native/sms';
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
-//import { Pro } from '@ionic/pro';
+import { Pro } from '@ionic/pro';
 
 @IonicPage()
 @Component({
@@ -67,7 +67,8 @@ export class ItemDetailPage {
     this.timeBetweenTexts = 60000;
     for (let contactSomething of this.allContacts){
       if(contactSomething.id.indexOf(this.checkedContacts)){
-        setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, this.item.desc));
+        setInterval((x * this.timeBetweenTexts), Pro.monitoring.log(contactSomething.phoneNumbers, options));
+        // this.sms.send(contactSomething.phoneNumbers, this.item.desc)
         x = x + 1;
       }
     }
