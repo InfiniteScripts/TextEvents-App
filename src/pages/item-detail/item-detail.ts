@@ -34,7 +34,18 @@ export class ItemDetailPage {
   private updateString: string;
   private deleteString: string;
 
-  constructor(public phoneContacts: Contacts, public sms: SMS, public translateService: TranslateService, public toastCtrl: ToastController, public navCtrl: NavController, navParams: NavParams, items: Items, formBuilder: FormBuilder, public camera: Camera, public api:Api) {
+  constructor(
+    public phoneContacts: Contacts,
+    public sms: SMS,
+    public translateService: TranslateService,
+    public toastCtrl: ToastController,
+    public navCtrl: NavController,
+    navParams: NavParams,
+    items: Items,
+    formBuilder: FormBuilder,
+    public camera: Camera,
+    public api:Api
+    ) {
 
     this.item = navParams.get('item');
     this.checkedContacts = this.item.contacts;
@@ -67,7 +78,7 @@ export class ItemDetailPage {
     this.timeBetweenTexts = 60000;
     for (let contactSomething of this.allContacts){
       if(contactSomething.id.indexOf(this.checkedContacts)){
-        setInterval((x * this.timeBetweenTexts), Pro.monitoring.log(contactSomething.phoneNumbers, options));
+        setInterval((x * this.timeBetweenTexts), Pro.monitoring.log(contactSomething.phoneNumbers));
         // this.sms.send(contactSomething.phoneNumbers, this.item.desc)
         x = x + 1;
       }
