@@ -37,6 +37,7 @@ export class ItemDetailPage {
   constructor(
     public phoneContacts: Contacts,
     public sms: SMS,
+    public settings: Settings,
     public translateService: TranslateService,
     public toastCtrl: ToastController,
     public navCtrl: NavController,
@@ -48,6 +49,7 @@ export class ItemDetailPage {
     ) {
 
     this.item = navParams.get('item');
+    this.timeBetweenTexts = settings.getValue('option1') * 1000;
     this.checkedContacts = this.item.contacts;
     this.form = formBuilder.group({
       profilePic: this.item.profilePic,
@@ -75,14 +77,14 @@ export class ItemDetailPage {
 
   send(){
     var x = 1;
-    this.timeBetweenTexts = 60000;
-    //Pro.monitoring.log(this.checkedContacts, { level: 'error' });
+
+    Pro.monitoring.log(this.timeBetweenTexts, { level: 'error' });
     for (let contactSomething of this.allContacts){
 
       if(this.checkedContacts.indexOf(contactSomething.id) > -1){
         Pro.monitoring.log(contactSomething.phoneNumbers, { level: 'error' });
-        //setInterval(, (x * this.timeBetweenTexts));
-        this.sms.send(contactSomething.phoneNumbers[0].value, this.item.desc)
+        setInterval(this.sms.send(contactSomething.phoneNumbers[0].value, this.item.desc), (x * this.timeBetweenTexts));
+
         x = x + 1;
       }
     }
