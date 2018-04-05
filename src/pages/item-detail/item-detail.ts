@@ -49,7 +49,10 @@ export class ItemDetailPage {
     ) {
 
     this.item = navParams.get('item');
-    this.timeBetweenTexts = parseInt(settings.getValue('option1')) * 1000;
+    settings.getValue('option1').then(value){
+      this.timeBetweenTexts = parseInt(value) * 1000;
+    }
+
     this.checkedContacts = this.item.contacts;
     this.form = formBuilder.group({
       profilePic: this.item.profilePic,
