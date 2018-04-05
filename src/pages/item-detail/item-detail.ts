@@ -76,11 +76,11 @@ export class ItemDetailPage {
   send(){
     var x = 1;
     this.timeBetweenTexts = 60000;
-    Pro.monitoring.log(this.checkedContacts, { level: 'error' });
+    //Pro.monitoring.log(this.checkedContacts, { level: 'error' });
     for (let contactSomething of this.allContacts){
-      if(contactSomething.id.indexOf(this.checkedContacts)){
+      if(this.checkedContacts.indexOf(contactSomething.id)){
 
-        //setInterval(Pro.monitoring.log(contactSomething.phoneNumbers, { level: 'error' }), (x * this.timeBetweenTexts));
+        setInterval(Pro.monitoring.log(contactSomething.phoneNumbers, { level: 'error' }), (x * this.timeBetweenTexts));
         // this.sms.send(contactSomething.phoneNumbers, this.item.desc)
         x = x + 1;
       }
