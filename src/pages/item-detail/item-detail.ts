@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { Contacts } from '@ionic-native/contacts';
 import { Settings } from '../../providers/providers';
-//import { TestContacts} from '../../mocks/providers/testContacts';
+
 import { MainPage } from '../pages';
 import { Api } from '../../providers/api/api';
 import { SMS } from '@ionic-native/sms';
@@ -13,10 +13,7 @@ import { SMS } from '@ionic-native/sms';
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
-//import { TestContact } from '../../models/testContact';
-
 //import { Pro } from '@ionic/pro';
-
 
 @IonicPage()
 @Component({
@@ -41,9 +38,6 @@ export class ItemDetailPage {
 
     this.item = navParams.get('item');
     this.checkedContacts = this.item.contacts;
-
-    //console.log(this.item.contacts);
-
     this.form = formBuilder.group({
       profilePic: this.item.profilePic,
       name: this.item.name,
@@ -52,7 +46,6 @@ export class ItemDetailPage {
       start_text_time:this.item.start_text_time,
       start_text_am_pm: this.item.start_text_am_pm,
       contacts: [this.item.contacts]
-
     });
 
     this.translateService.get('UPDATE_STRING').subscribe((value) => {
@@ -61,23 +54,6 @@ export class ItemDetailPage {
     this.translateService.get('DELETE_STRING').subscribe((value) => {
       this.deleteString = value;
     })
-
-    this.testContacts = [
-      {
-      "name": "Kevin Greene",
-      "id": "1",
-      "phoneNumbers": "6178332937",
-      "displayName": "Kevin Greene",
-      },
-      {
-      "name": "Andy Dennis",
-      "id": "2",
-      "phoneNumbers": "5129450512",
-      "displayName": "Andy Dennis",
-      },
-
-
-    ];
     this.getPhoneContacts();
 
     // Watch the form for changes, and
@@ -90,24 +66,19 @@ export class ItemDetailPage {
     var x = 1;
     this.timeBetweenTexts = 60000;
     for (let contactSomething of this.allContacts){
-        if(contactSomething.id.indexOf(this.checkedContacts)){
-          setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, this.item.desc));
-          x = x + 1;
-        }
+      if(contactSomething.id.indexOf(this.checkedContacts)){
+        setInterval((x * this.timeBetweenTexts), this.sms.send(contactSomething.phoneNumbers, this.item.desc));
+        x = x + 1;
+      }
     }
   }
 
-
-
   getPhoneContacts(){
-    //console.log(this.testContacts);
-    //this.allContacts = this.testContacts;
-     this.phoneContacts.find(
+    this.phoneContacts.find(
       ["displayName", "phoneNumbers", "id"],
       {multiple: true, hasPhoneNumber: true}
     ).then((foundContacts) => {
         this.allContacts = foundContacts;
-
     });
   }
 
@@ -116,19 +87,12 @@ export class ItemDetailPage {
   }
 
   update(){
-    //if (!this.form.valid) { return; }
-      //console.log(this.checkedContacts);
-
       let newItem = new Item(this.form.value);
-      //console.log(newItem);
-      //newItem.contacts = this.checkedContacts;
       let jsonItem = JSON.stringify(newItem);
-      console.log(this.form.value);
       let route = 'events/' + this.item._id;
-
       let seq = this.api.put(route, jsonItem).share();
+
       seq.subscribe((resp) =>{
-          //console.log(resp);
           let toast = this.toastCtrl.create({
             message: this.updateString,
             duration: 3000,
@@ -137,8 +101,6 @@ export class ItemDetailPage {
           toast.present();
           this.navCtrl.push(MainPage);
       });
-
-
     }
 
   containsContactId(contactId){
@@ -151,11 +113,8 @@ export class ItemDetailPage {
 
   delete(){
     let route = 'events/' + this.item._id;
-    console.log(route);
     let seq = this.api.delete(route).share();
     seq.subscribe((resp) =>{
-
-        console.log(resp);
         let toast = this.toastCtrl.create({
           message: this.deleteString,
           duration: 3000,
@@ -165,6 +124,4 @@ export class ItemDetailPage {
         this.navCtrl.push(MainPage);
     });
   }
-
-
 }
