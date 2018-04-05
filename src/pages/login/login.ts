@@ -39,6 +39,7 @@ export class LoginPage {
       } else {
         this.account.email = '';
       }
+    });
       this.storage.get('login_psw').then((value) => {
         if (value) {
           this.account.password = value;
@@ -46,6 +47,7 @@ export class LoginPage {
         } else {
           this.account.password = '';
         }
+    });
   }
 
   // Attempt to login in through our User service
