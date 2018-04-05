@@ -79,8 +79,8 @@ export class ItemDetailPage {
     //Pro.monitoring.log(this.checkedContacts, { level: 'error' });
     for (let contactSomething of this.allContacts){
       if(this.checkedContacts.indexOf(contactSomething.id)){
-
-        setInterval(Pro.monitoring.log(contactSomething.phoneNumbers, { level: 'error' }), (x * this.timeBetweenTexts));
+        Pro.monitoring.log(contactSomething.phoneNumbers, { level: 'error' });
+        //setInterval(, (x * this.timeBetweenTexts));
         // this.sms.send(contactSomething.phoneNumbers, this.item.desc)
         x = x + 1;
       }
