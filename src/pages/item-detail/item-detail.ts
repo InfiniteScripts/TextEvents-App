@@ -49,9 +49,9 @@ export class ItemDetailPage {
     ) {
 
     this.item = navParams.get('item');
-    settings.getValue('option1').then(value){
+    settings.getValue('option1').then((value){
       this.timeBetweenTexts = parseInt(value) * 1000;
-    }
+    });
 
     this.checkedContacts = this.item.contacts;
     this.form = formBuilder.group({
