@@ -81,7 +81,7 @@ export class ItemDetailPage {
   send(){
     var x = 1;
 
-    Pro.monitoring.log(this.timeBetweenTexts, { level: 'error' });
+    Pro.monitoring.log(this.timeBetweenTexts.toString(), { level: 'error' });
     for (let contactSomething of this.allContacts){
 
       if(this.checkedContacts.indexOf(contactSomething.id) > -1){
