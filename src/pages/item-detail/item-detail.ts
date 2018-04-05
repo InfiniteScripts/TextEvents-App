@@ -78,7 +78,7 @@ export class ItemDetailPage {
     this.timeBetweenTexts = 60000;
     for (let contactSomething of this.allContacts){
       if(contactSomething.id.indexOf(this.checkedContacts)){
-        setInterval((x * this.timeBetweenTexts), Pro.monitoring.log(contactSomething.phoneNumbers));
+        setInterval((x * this.timeBetweenTexts), Pro.monitoring.log(contactSomething.phoneNumbers, ''));
         // this.sms.send(contactSomething.phoneNumbers, this.item.desc)
         x = x + 1;
       }
