@@ -42,7 +42,7 @@ export class User {
       if (res == 'success') {
         this._loggedIn(res);
         localStorage.setItem('currentUser', accountInfo.email);
-        
+
       } else if (res == 'Invalid Email') {
 
       }
