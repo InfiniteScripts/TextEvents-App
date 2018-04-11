@@ -20,6 +20,7 @@ import { MyApp } from './app.component';
 
 import { Pro } from '@ionic/pro';
 import { Injectable, Injector } from '@angular/core';
+import { InfiniteScriptsSpinner } from '../providers/infinite-scripts-spinner/infinite-scripts-spinner';
 
 
 Pro.init('b4559f5d', {
@@ -101,7 +102,8 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    InfiniteScriptsSpinner
   ]
 })
 export class AppModule { }

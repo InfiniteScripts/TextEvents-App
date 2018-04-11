@@ -4,6 +4,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
+import { InfiniteScriptsSpinner } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -27,7 +28,8 @@ export class LoginPage {
     public user: User,
     public toastCtrl: ToastController,
     public storage: Storage,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    public ISSpinner: InfiniteScriptsSpinner) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -53,10 +55,11 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
-
+      this.ISSpinner.showSpinner();
       if(resp.toString() == 'success'){
           this.storage.set('login_email', this.account.email);
           this.storage.set('login_psw', this.account.password);
+          this.ISSpinner.hideSpinner();
           this.navCtrl.push(MainPage);
       } else {
           this.navCtrl.push(LoginPage);
