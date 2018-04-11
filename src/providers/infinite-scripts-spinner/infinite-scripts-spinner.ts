@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
 
 @Injectable()
 export class InfiniteScriptsSpinner {
-  boolean isBusy : false;
+  isBusy : boolean;
 
   constructor() {
      this.isBusy = false;
