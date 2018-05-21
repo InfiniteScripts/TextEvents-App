@@ -21,9 +21,11 @@ export class InfiniteScriptsSpinner {
 
   showSpinner(){
       this.isBusy = true;
+       document.getElementsByClassName("menu-content-overlay")[0].classList.add("spinner");
   }
 
   hideSpinner(){
       this.isBusy = false;
+      document.getElementsByClassName("menu-content-overlay")[0].classList.remove("spinner");
   }
 }
