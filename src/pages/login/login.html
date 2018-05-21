@@ -8,7 +8,7 @@
 
 
 <ion-content>
-  
+  <div class="spinner-container"></div>
   <form (submit)="doLogin()">
     <ion-list>
 
@@ -26,9 +26,9 @@
         <button class="login-button" ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
       </div>
 
-      <div padding>
+      <div class="promo" padding>
         <p>An App by</p>
-        <img src="assets/img/promotion/is-logo.jpg">
+        <a href="http://www.infinitescripts.com"><img src="assets/img/promotion/is-logo.jpg"></a>
       </div>
 
     </ion-list>

@@ -54,8 +54,9 @@ export class LoginPage {
 
   // Attempt to login in through our User service
   doLogin() {
+    this.ISSpinner.showSpinner();
     this.user.login(this.account).subscribe((resp) => {
-      this.ISSpinner.showSpinner();
+
       if(resp.toString() == 'success'){
           this.storage.set('login_email', this.account.email);
           this.storage.set('login_psw', this.account.password);
