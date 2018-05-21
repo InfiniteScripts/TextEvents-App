@@ -8,7 +8,7 @@
 
 <ion-content>
 <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
-  <input type="file" #fileInput style="" name="files[]" (change)="processWebImage($event)" />
+  <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
   <div class="profile-image-wrapper" (click)="getPicture()">
     <div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value">
       <ion-icon name="add"></ion-icon>
@@ -23,10 +23,10 @@
       <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="desc"></ion-input>
+      <ion-textarea type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="desc"></ion-textarea>
     </ion-item>
 
-    <ion-item>
+    <!--<ion-item>
       <ion-label>{{ 'ITEM_START_PLACEHOLDER' | translate }}</ion-label>
         <ion-select formControlName="start_text_time">
           <ion-option value="1">1</ion-option>
@@ -50,7 +50,7 @@
           <ion-option value="PM">PM</ion-option>
 
         </ion-select>
-      </ion-item>
+      </ion-item> -->
     <ion-item>
       <ion-label>Weekday</ion-label>
         <ion-select formControlName="day">
