@@ -23,7 +23,7 @@ import { Injectable, Injector } from '@angular/core';
 import { InfiniteScriptsSpinner } from '../providers/infinite-scripts-spinner/infinite-scripts-spinner';
 
 
-Pro.init('b4559f5d', {
+Pro.init('a199cee2', {
   appVersion: '1.0.0'
 })
 // The translate loader needs to know where to load i18n files
