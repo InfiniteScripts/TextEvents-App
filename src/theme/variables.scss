@@ -13,7 +13,7 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 $text-color:        #000;
-$background-color:  #454545;
+$background-color:  #fff;
 
 
 // Named Color Variables
@@ -26,13 +26,17 @@ $background-color:  #454545;
 
 $colors: (
   primary:    #bf292a,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
+  secondary:  #000,
+  danger:     #000,
+  light:      #000,
   dark:       #222
 );
 
-
+button{
+  max-width:200px;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
