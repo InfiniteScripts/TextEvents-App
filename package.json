@@ -31,10 +31,11 @@
     "@ionic/storage": "2.1.3",
     "@ngx-translate/core": "8.0.0",
     "@ngx-translate/http-loader": "^2.0.0",
+    "cordova-android": "^7.0.0",
     "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-contacts": "^3.0.1",
     "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-ionic": "^4.1.3",
+    "cordova-plugin-ionic": "^4.1.7",
     "cordova-sms-plugin": "^0.1.11",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
@@ -51,7 +52,15 @@
     "plugins": {
       "cordova-plugin-contacts": {},
       "cordova-plugin-background-mode": {},
-      "cordova-sms-plugin": {}
+      "cordova-sms-plugin": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "a199cee2",
+        "CHANNEL_NAME": "Production",
+        "UPDATE_METHOD": "background",
+        "WARN_DEBUG": "true",
+        "UPDATE_API": "https://api.ionicjs.com",
+        "MAX_STORE": "2"
+      }
     }
   }
 }
