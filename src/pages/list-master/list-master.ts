@@ -12,7 +12,7 @@ import { Items } from '../../providers/providers';
 })
 export class ListMasterPage {
   public currentItems: any;
-\
+
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
 
 
