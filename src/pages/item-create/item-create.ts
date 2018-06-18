@@ -18,7 +18,7 @@ export class ItemCreatePage {
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
-
+  allContacts: any;
   item: any;
 
   form: FormGroup;
