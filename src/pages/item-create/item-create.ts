@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { MainPage } from '../pages';
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
+import { Contacts } from '@ionic-native/contacts';
 
 @IonicPage()
 @Component({
@@ -22,7 +23,7 @@ export class ItemCreatePage {
 
   form: FormGroup;
 
-  constructor(public storage: Storage, public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items:Items, public api:Api) {
+  constructor(public storage: Storage, public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items:Items, public phoneContacts: Contacts, public api:Api) {
     this.form = formBuilder.group({
       profilePic: [''],
       name: ['', Validators.required],
@@ -43,6 +44,15 @@ export class ItemCreatePage {
 
   ionViewDidLoad() {
 
+  }
+
+  getPhoneContacts(){
+    this.phoneContacts.find(
+      ["displayName", "phoneNumbers", "id"],
+      {multiple: true, hasPhoneNumber: true}
+    ).then((foundContacts) => {
+        this.allContacts = foundContacts;
+    });
   }
 
   getPicture() {

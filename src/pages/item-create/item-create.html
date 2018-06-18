@@ -83,8 +83,14 @@
 
           </ion-select>
         </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}" formControlName="contacts"></ion-input>
+        <ion-item>
+          <ion-label> {{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}</ion-label>
+        </ion-item>
+        <!-- [checked]="contacts.contains(singleContact.id)" *ngIf="singleContact.displayName" value="singleContact.id"-->
+        <ion-item>
+        <ion-select [ngModel]= "this.checkedContacts" formControlName="contacts" multiple>
+            <ion-option *ngFor="let singleContact of allContacts" [selected]="this.containsContactId(singleContact.id)" value="{{singleContact.id}}">{{singleContact.displayName}}</ion-option>
+        </ion-select>
       </ion-item>
     </ion-list>
   </form>
