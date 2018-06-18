@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { NavController, ViewController } from 'ionic-angular';
 import { Api } from '../../providers/api/api';
-
+import { Storage } from '@ionic/storage';
+import { MainPage } from '../pages';
 import { Items } from '../../providers/providers';
 import { Item } from '../../models/item';
 
@@ -21,7 +22,7 @@ export class ItemCreatePage {
 
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items:Items, public api:Api) {
+  constructor(public storage: Storage, public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items:Items, public api:Api) {
     this.form = formBuilder.group({
       profilePic: [''],
       name: ['', Validators.required],
@@ -29,7 +30,8 @@ export class ItemCreatePage {
       day: [''],
       start_text_time:[''],
       start_text_am_pm: [''],
-      contacts:['']
+      contacts:[''],
+      user: this.storage.get('login_email')
 
     });
 
@@ -96,7 +98,7 @@ export class ItemCreatePage {
     seq.subscribe((resp) =>{
         console.log(resp);
         item.id = resp['_id'];
-
+        this.navCtrl.push(MainPage);
     });
 
     this.viewCtrl.dismiss(this.form.value);

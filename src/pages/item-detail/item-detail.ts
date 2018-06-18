@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { Contacts } from '@ionic-native/contacts';
 import { Settings } from '../../providers/providers';
+import { User } from '../../providers/providers';
 
 import { MainPage } from '../pages';
 import { Api } from '../../providers/api/api';
