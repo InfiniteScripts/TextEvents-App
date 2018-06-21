@@ -73,7 +73,7 @@ export class LoginPage {
 
           toast.present();
       }
-    } /*, (err) => {
+    }, (err) => {
       this.navCtrl.push(LoginPage);
       // Unable to log in
       let toast = this.toastCtrl.create({
@@ -83,5 +83,5 @@ export class LoginPage {
       });
       toast.present();
     });
-  } */
+  }
 }
