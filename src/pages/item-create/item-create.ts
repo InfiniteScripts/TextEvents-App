@@ -40,6 +40,7 @@ export class ItemCreatePage {
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
     });
+      this.getPhoneContacts();
   }
 
   ionViewDidLoad() {
