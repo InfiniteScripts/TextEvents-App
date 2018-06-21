@@ -24,7 +24,7 @@ import { InfiniteScriptsSpinner } from '../providers/infinite-scripts-spinner/in
 
 
 Pro.init('a199cee2', {
-  appVersion: '1.0.1'
+  appVersion: '1.0.3'
 })
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.

@@ -50,7 +50,7 @@ export class SignupPage {
         toast.present();
       }
       console.error(resp);
-    }, (err) => {
+    } /*, (err) => {
 
       this.navCtrl.push(MainPage);
 
@@ -62,5 +62,5 @@ export class SignupPage {
       });
       toast.present();
     });
-  }
+  } */
 }
