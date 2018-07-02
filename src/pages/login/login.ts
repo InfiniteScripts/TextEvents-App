@@ -34,15 +34,17 @@ export class LoginPage {
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
-    this.storage.get('login_email').then((value) => {
+    storage.get('login_email').then((value) => {
+
       if (value) {
         this.account.email = value;
+        //this.account.email = 'potato';
 
       } else {
         this.account.email = '';
       }
     });
-      this.storage.get('login_psw').then((value) => {
+    storage.get('login_psw').then((value) => {
         if (value) {
           this.account.password = value;
 
@@ -58,8 +60,8 @@ export class LoginPage {
     this.user.login(this.account).subscribe((resp) => {
 
       if(resp.toString() == 'success'){
-          this.storage.set('login_email', this.account.email);
-          this.storage.set('login_psw', this.account.password);
+          storage.set('login_email', this.account.email);
+          storage.set('login_psw', this.account.password);
           this.ISSpinner.hideSpinner();
           this.navCtrl.push(MainPage);
       } else {

@@ -9,7 +9,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Contacts } from '@ionic-native/contacts';
-import { BackgroundMode } from '@ionic-native/background-mode';
+
 import { SMS } from '@ionic-native/sms';
 
 import { Items } from '../providers/items/items';
@@ -24,7 +24,7 @@ import { InfiniteScriptsSpinner } from '../providers/infinite-scripts-spinner/in
 
 
 Pro.init('a199cee2', {
-  appVersion: '2.0.3'
+  appVersion: '4.0.0'
 })
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -96,7 +96,7 @@ export function provideSettings(storage: Storage) {
     Camera,
     Contacts,
     SplashScreen,
-    BackgroundMode,
+
     IonicErrorHandler,
         [{ provide: ErrorHandler, useClass: MyErrorHandler }],
     StatusBar,

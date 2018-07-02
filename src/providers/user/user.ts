@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/toPromise';
-
+import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 
 import { Api } from '../api/api';
@@ -27,7 +27,7 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
 
-  constructor(public api: Api) { }
+  constructor(public api: Api, public storage: Storage) { }
 
   /**
    * Send a POST request to our login endpoint with the data
@@ -38,10 +38,10 @@ export class User {
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
-
+      console.log(res);
       if (res == 'success') {
         this._loggedIn(res);
-        localStorage.setItem('currentUser', accountInfo.email);
+        storage.set('currentUser', accountInfo.email);
 
       } else if (res == 'Invalid Email') {
 
@@ -63,7 +63,7 @@ export class User {
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
       if (res.status == 'success') {
-        localStorage.setItem('currentUser', accountInfo.email);
+        storage.set('currentUser', accountInfo.email);
         this._loggedIn(res);
       }
     }, err => {

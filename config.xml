@@ -1,5 +1,5 @@
-<?xml version='2.0.0' encoding='utf-8'?>
-<widget id="textevents.is" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.1">
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="textevents.is" version="4.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.1">
     <name>TextEvents</name>
     <description>Social Group Texting App</description>
     <author email="kevin@infinitescripts.com" href="http://www.infinitescripts.com">Kevin Greene</author>
@@ -81,7 +81,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-contacts" spec="^3.0.1" />
-    <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-sms-plugin" spec="^0.1.11" />
     <plugin name="cordova-plugin-ionic" spec="^4.1.7">
         <variable name="APP_ID" value="a199cee2" />
@@ -91,4 +90,5 @@
         <variable name="UPDATE_API" value="https://api.ionicjs.com" />
         <variable name="MAX_STORE" value="2" />
     </plugin>
+    <plugin name="cordova-sqlite-storage" spec="^2.3.2" />
 </widget>

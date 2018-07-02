@@ -20,7 +20,10 @@ export class ItemCreatePage {
   isReadyToSave: boolean;
   allContacts: any;
   item: any;
-
+  checkedContacts: any;
+  saveContacts: any;
+  testContacts: any;
+  contactId = 0;
   form: FormGroup;
 
   constructor(public storage: Storage, public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, public items:Items, public phoneContacts: Contacts, public api:Api) {
