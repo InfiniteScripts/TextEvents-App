@@ -34,7 +34,7 @@ export class LoginPage {
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
-    storage.get('login_email').then((value) => {
+    this.storage.get('login_email').then((value) => {
 
       if (value) {
         this.account.email = value;
@@ -44,7 +44,7 @@ export class LoginPage {
         this.account.email = '';
       }
     });
-    storage.get('login_psw').then((value) => {
+    this.storage.get('login_psw').then((value) => {
         if (value) {
           this.account.password = value;
 
@@ -60,8 +60,8 @@ export class LoginPage {
     this.user.login(this.account).subscribe((resp) => {
 
       if(resp.toString() == 'success'){
-          storage.set('login_email', this.account.email);
-          storage.set('login_psw', this.account.password);
+          this.storage.set('login_email', this.account.email);
+          this.storage.set('login_psw', this.account.password);
           this.ISSpinner.hideSpinner();
           this.navCtrl.push(MainPage);
       } else {
