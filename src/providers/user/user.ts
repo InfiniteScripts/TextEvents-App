@@ -41,7 +41,7 @@ export class User {
       console.log(res);
       if (res == 'success') {
         this._loggedIn(res);
-        storage.set('currentUser', accountInfo.email);
+        this.storage.set('currentUser', accountInfo.email);
 
       } else if (res == 'Invalid Email') {
 
@@ -63,7 +63,7 @@ export class User {
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
       if (res.status == 'success') {
-        storage.set('currentUser', accountInfo.email);
+        this.storage.set('currentUser', accountInfo.email);
         this._loggedIn(res);
       }
     }, err => {
