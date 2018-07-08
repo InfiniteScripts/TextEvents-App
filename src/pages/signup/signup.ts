@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
-
+import { Pro } from '@ionic/pro';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 
@@ -52,15 +52,16 @@ export class SignupPage {
       console.error(resp);
     }, (err) => {
 
-      this.navCtrl.push(MainPage);
+      Pro.monitoring.log(err,  { level: 'error' });
+      //this.navCtrl.push(MainPage);
 
       // Unable to sign up
       let toast = this.toastCtrl.create({
-        message: this.signupErrorString,
+        message: err.toString(),
         duration: 5000,
         position: 'top'
       });
       toast.present();
     });
-  } 
+  }
 }

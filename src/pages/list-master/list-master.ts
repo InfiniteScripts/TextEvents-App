@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
-import { User } from '../../providers/providers';
-
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
 
@@ -12,23 +10,16 @@ import { Items } from '../../providers/providers';
 })
 export class ListMasterPage {
   public currentItems: any;
-
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-
-
   }
 
   /**
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
-
     this.items.query().subscribe((resp) =>{
         this.currentItems = resp;
-
       });
-
-
   }
 
   /**
