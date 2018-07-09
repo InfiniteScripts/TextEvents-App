@@ -25,7 +25,7 @@
 
 <ion-content>
   <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
-    <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+    <!--<input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
     <div class="profile-image-wrapper" (click)="getPicture()">
       <div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value">
         <ion-icon name="add"></ion-icon>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>
-    </div>
+    </div> -->
     <ion-list>
       <ion-item>
         <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>
@@ -72,7 +72,7 @@
         </ion-item> -->
       <ion-item>
         <ion-label>Weekday</ion-label>
-          <ion-select formControlName="day">
+        <ion-select formControlName="day">
             <ion-option value="Monday">Monday</ion-option>
             <ion-option value="Tuesday">Tuesday</ion-option>
             <ion-option value="Wednesday">Wednesday</ion-option>
@@ -81,16 +81,16 @@
             <ion-option value="Saturday">Saturday</ion-option>
             <ion-option value="Sunday">Sunday</ion-option>
 
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label> {{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}</ion-label>
-        </ion-item>
-        <!-- [checked]="contacts.contains(singleContact.id)" *ngIf="singleContact.displayName" value="singleContact.id"-->
-        <ion-item>
-        <ion-select [ngModel]= "this.checkedContacts" formControlName="contacts" multiple>
-            <ion-option *ngFor="let singleContact of allContacts" [selected]="this.containsContactId(singleContact.id)" value="{{singleContact.id}}">{{singleContact.displayName}}</ion-option>
         </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label> {{ 'ITEM_CONTACTS_PLACEHOLDER' | translate }}</ion-label>
+      </ion-item>
+        <!-- [checked]="contacts.contains(singleContact.id)" *ngIf="singleContact.displayName" value="singleContact.id"-->
+      <ion-item>
+      <!--  <ion-select [ngModel]= "this.checkedContacts" formControlName="contacts" multiple>
+          <ion-option *ngFor="let singleContact of allContacts" [selected]="this.containsContactId(singleContact.id)" value="{{singleContact.id}}">{{singleContact.displayName}}</ion-option>
+        </ion-select> -->
       </ion-item>
     </ion-list>
   </form>

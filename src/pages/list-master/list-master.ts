@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -10,15 +11,18 @@ import { Items } from '../../providers/providers';
 })
 export class ListMasterPage {
   public currentItems: any;
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
+  constructor(public storage: Storage, public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
   }
 
   /**
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
-    this.items.query().subscribe((resp) =>{
-        this.currentItems = resp;
+      this.storage.get("login_email").then((data) => {
+        this.items.query(data.toString()).subscribe((resp) =>{
+          console.log(resp);
+          this.currentItems = resp;
+        });
       });
   }
 

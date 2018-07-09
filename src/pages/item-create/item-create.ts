@@ -32,10 +32,10 @@ export class ItemCreatePage {
       name: ['', Validators.required],
       desc: [''],
       day: [''],
-      start_text_time:[''],
-      start_text_am_pm: [''],
+      //start_text_time:[''],
+      //start_text_am_pm: [''],
       contacts:[''],
-      user: this.storage.get('login_email')
+      user: ['']
 
     });
 
@@ -48,6 +48,14 @@ export class ItemCreatePage {
 
   ionViewDidLoad() {
 
+  }
+
+  setUser(){
+    this.storage.get('login_email').then((data) => {
+
+      console.log(data.toString());
+      return data.toString();
+    });
   }
 
   getPhoneContacts(){
@@ -105,17 +113,20 @@ export class ItemCreatePage {
     if (!this.form.valid) { return; }
 
     let item = new Item(this.form.value);
+    this.storage.get("login_email").then((data) => {
+      item.user = data.toString();
+      let jsonItem = JSON.stringify(item);
 
-    let jsonItem = JSON.stringify(item);
+
     console.log(jsonItem);
     let seq = this.api.post('events', jsonItem).share();
     seq.subscribe((resp) =>{
-        console.log(resp);
+
         item.id = resp['_id'];
         this.navCtrl.push(MainPage);
     });
 
     this.viewCtrl.dismiss(this.form.value);
-
+    });
   }
 }

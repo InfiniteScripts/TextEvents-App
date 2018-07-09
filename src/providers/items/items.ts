@@ -11,12 +11,13 @@ export class Items {
 
   }
 
-  query(params?: any) {
-    console.log(this.storage.get('login_email'));
-    let seq = this.api.get('events', {'user' : this.storage.get('login_email')}).share();
+  query(currentUser: string, params?: any) {
+
+    let seq = this.api.get('user', {'user' : currentUser}).share();
     seq.subscribe(resp =>{
       this.currentItems = JSON.stringify(resp);
     });
+
     return seq;
   }
 

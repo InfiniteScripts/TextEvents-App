@@ -13,7 +13,7 @@ export class Item {
   public user: string;
   public profilePic: string;
   public created_date: number;
-
+  public storage: Storage;
   public desc: string;
   public day: string;
   public start_text_time: string;
@@ -25,12 +25,10 @@ export class Item {
     for (let key in data) {
             this[key] = data[key];
     }
-
     this.created_date = Date.now();
     this.profilePic = 'assets/img/profile/pokerchip.png';
-    this.user = localStorage.getItem('currentUser');
-  }
 
+  }
 }
 
 export interface Item {
